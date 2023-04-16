@@ -25,8 +25,23 @@ public class RedBlackTree extends ArvoreBinariaDeBusca {
             uncle.setColor(Node.BLACK_COLOR);
             grandparent.setColor(Node.RED_COLOR);
             fixPostInsertion(grandparent);
-        }else if(parent == parent.getParent().getRight()){
+        }else if(parent == grandparent.getRight()){
+            if(node == parent.getLeft()){//  Situação em que se forma um padrão triangular entre RED-RED
+                rotateRight(parent);//nessa etapa node é a nova raiz da subárvore
+                parent = node;
+            }
+            rotateLeft(grandparent);// Situação em que o padrão de RED-RED forma uma linha
+            grandparent.setColor(Node.RED_COLOR);
+            parent.setColor(Node.BLACK_COLOR);
 
+        }else{
+            if(node == parent.getRight()){//  Situação em que se forma um padrão triangular entre RED-RED
+                rotateLeft(parent);//nessa etapa node é a nova raiz da subárvore
+                parent = node;
+            }
+            rotateRight(grandparent);// Situação em que o padrão de RED-RED forma uma linha
+            grandparent.setColor(Node.RED_COLOR);
+            parent.setColor(Node.BLACK_COLOR);
         }
 
 
