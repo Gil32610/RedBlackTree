@@ -83,4 +83,18 @@ public class ArvoreBinariaDeBusca {
         return raiz;
     }
 
+    public void preOrder() {
+        inOrder(raiz);
+    }
+
+    private void preOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        System.out.println(root);
+        inOrder(root.getLeft());
+        inOrder(root.getRight());
+    }
+
 }
