@@ -25,7 +25,10 @@ public class RedBlackTree extends ArvoreBinariaDeBusca {
             uncle.setColor(Node.BLACK_COLOR);
             grandparent.setColor(Node.RED_COLOR);
             fixPostInsertion(grandparent);
+        }else if(parent == parent.getParent().getRight()){
+
         }
+
 
     }
 
@@ -51,10 +54,19 @@ public class RedBlackTree extends ArvoreBinariaDeBusca {
         changeReferences(parent, node, rightChild);
     }
 
-    private void rotateRight(Node grandparent) {
-        Node y = grandparent.getRight();
-        grandparent.setRight(y.getLeft());
-        y.setLeft(grandparent);
+    private void rotateRight(Node node) {
+        Node parent = node.getParent();
+        Node leftChild = node.getLeft();
+
+        node.setLeft(leftChild.getRight());
+
+        if (leftChild.getRight() != null) {
+            leftChild.setParent(node);
+        }
+        leftChild.setRight(node);
+        node.setParent(leftChild);
+        changeReferences(parent, node, leftChild);
+
     }
 
     private void changeReferences(Node parent, Node oldChild, Node newChild) {
