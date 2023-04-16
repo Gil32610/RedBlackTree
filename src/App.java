@@ -1,5 +1,11 @@
+import BinaryTree.*;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        RedBlackTree redBlackTree = new RedBlackTree();
+        redBlackTree.put(12);
+        redBlackTree.put(10);
+        System.out.println(redBlackTree.getRaiz());
+        System.out.println(redBlackTree.getRaiz().getLeft());
     }
 }
