@@ -5,16 +5,16 @@ public class Node {
     private Node parent;
     private Integer key;
     private boolean color;
-    public static int RED_COLOR = 0;
-    public static int BLACK_COLOR = 1;
+    public static boolean RED_COLOR = false;
+    public static boolean BLACK_COLOR = true;
 
     public Node(int key) {
         this.key = key;
         this.color = false;
     }
 
-    public void setColor(int color) {
-        this.color = color == 1 ? true : false;
+    public void setColor(boolean color) {
+        this.color = color;
     }
 
     public boolean isBlack() {
