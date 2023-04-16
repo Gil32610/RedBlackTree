@@ -16,6 +16,7 @@ public class ArvoreBinariaDeBusca {
             parent = node;
             node.setLeft(put(parent, node.getLeft(), number));
         } else if (number > node.getKey()) {
+            parent = node;
             node.setRight(put(parent, node.getRight(), number));
         } else {
             System.out.println("Repeated");
