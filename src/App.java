@@ -7,5 +7,6 @@ public class App {
         redBlackTree.put(10);
         System.out.println(redBlackTree.getRaiz());
         System.out.println(redBlackTree.getRaiz().getLeft());
+        System.out.println(redBlackTree.getUncle(redBlackTree.getRaiz()));
     }
 }

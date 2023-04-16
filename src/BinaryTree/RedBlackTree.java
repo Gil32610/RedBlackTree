@@ -18,19 +18,16 @@ public class RedBlackTree extends ArvoreBinariaDeBusca {
         if (parent.isBlack()) {
             return;
         }
-        Node grandparent = parent.getParent();
-        if(grandparent!= null && !getUncle(parent).isBlack()){
-            
-        }
-        
+        Node uncle = getUncle(node);
 
     }
 
-    private Node getUncle(Node parent){
-        if(parent.getParent().getLeft() == parent){
-            return parent.getParent().getRight();
+    private Node getUncle(Node parent) {
+        Node grandparent = parent.getParent();
+        if (grandparent.getLeft() == parent) {
+            return grandparent.getRight();
         }
-        return parent.getParent().getLeft();
+        return grandparent.getLeft();
     }
 
 }
